@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>As One - Couples App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Background Elements -->
+        <div class="background-flowers">
+            <div class="flower flower-1"></div>
+            <div class="flower flower-2"></div>
+            <div class="flower flower-3"></div>
+            <div class="flower flower-4"></div>
+            <div class="flower flower-5"></div>
+            <div class="flower flower-6"></div>
+            <div class="flower flower-7"></div>
+            <div class="flower flower-8"></div>
+        </div>
+        
+        <div class="background-bubbles">
+            <div class="bubble bubble-1"></div>
+            <div class="bubble bubble-2"></div>
+            <div class="bubble bubble-3"></div>
+            <div class="bubble bubble-4"></div>
+            <div class="bubble bubble-5"></div>
+            <div class="bubble bubble-6"></div>
+        </div>
+
+        <!-- Profile Selection Screen -->
+        <div id="profile-screen" class="screen active">
+            <div class="profile-content">
+                <h1 class="profile-title">As One</h1>
+                <p class="profile-subtitle">Choose your profile</p>
+                <div class="profile-options">
+                    <button class="profile-btn" data-profile="Nishu">
+                        <div class="profile-avatar">👩</div>
+                        <div class="profile-name">Nishu</div>
+                    </button>
+                    <button class="profile-btn" data-profile="Dhawal">
+                        <div class="profile-avatar">👨</div>
+                        <div class="profile-name">Dhawal</div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Switch Button (visible on main screens) -->
+        <div class="profile-switch-btn" id="profile-switch-btn" style="display: none;">
+            <button class="switch-btn" id="switch-profile">
+                <span id="current-profile-avatar">👩</span>
+            </button>
+        </div>
+
+        <!-- Home Screen -->
+        <div id="home-screen" class="screen">
+            <div class="home-content">
+                <div class="user-greeting">
+                    <span class="user-avatar" id="user-avatar">👩</span>
+                    <span class="user-name" id="user-name">Nishu</span>
+                </div>
+                <div class="central-heart" id="central-heart">
+                    <div class="heart-icon" id="heart-icon">❤️</div>
+                </div>
+                <h1 class="app-title">As One</h1>
+            </div>
+        </div>
+
+        <!-- Messages Screen -->
+        <div id="messages-screen" class="screen">
+            <div class="screen-header">
+                <h2>Our Sweet Chats</h2>
+                <div class="chat-with" id="chat-with">Chat with your partner</div>
+            </div>
+            <div class="chat-container">
+                <div class="messages-list" id="messages-list">
+                    <!-- Messages will be populated by JavaScript -->
+                </div>
+            </div>
+            <div class="message-input-container">
+                <div class="input-wrapper">
+                    <input type="text" id="message-input" class="message-input" placeholder="Type a message...">
+                    <button class="emoji-btn" id="emoji-btn">😊</button>
+                    <button class="send-btn" id="send-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22,2 15,22 11,13 2,9 22,2"></polygon>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Connection Screen -->
+        <div id="connection-screen" class="screen">
+            <div class="screen-header">
+                <h2>Connection Hub</h2>
+            </div>
+            <div class="connection-content">
+                <div class="feature-card">
+                    <h3>Miss You Meter</h3>
+                    <div class="miss-meter-container">
+                        <div class="meter-track" id="meter-track">
+                            <div class="meter-fill" id="meter-fill"></div>
+                            <div class="meter-heart" id="meter-heart">💕</div>
+                        </div>
+                        <div class="meter-labels">
+                            <span>A little</span>
+                            <span>So much</span>
+                        </div>
+                        <button class="send-miss-btn" id="send-miss-btn">Send to Partner</button>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Thumb Kisses</h3>
+                    <p class="kiss-instruction">Touch the same circle together</p>
+                    <div class="thumb-kiss-container">
+                        <div class="kiss-circle" id="kiss-circle-1">
+                            <div class="kiss-ripple" id="ripple-1"></div>
+                        </div>
+                        <div class="kiss-circle" id="kiss-circle-2">
+                            <div class="kiss-ripple" id="ripple-2"></div>
+                        </div>
+                    </div>
+                    <div class="connection-status" id="connection-status">Waiting for connection...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feed Screen -->
+        <div id="feed-screen" class="screen">
+            <div class="screen-header">
+                <h2>Feed</h2>
+            </div>
+            <div class="feed-content">
+                <div class="feed-tabs">
+                    <button class="tab-btn active" data-tab="dates">Date Ideas</button>
+                    <button class="tab-btn" data-tab="games">Games</button>
+                    <button class="tab-btn" data-tab="shows">Shows</button>
+                    <button class="tab-btn" data-tab="questions">Questions</button>
+                </div>
+
+                <div class="feed-tab-content active" id="dates-tab">
+                    <div class="feed-grid" id="dates-grid">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="feed-tab-content" id="games-tab">
+                    <div class="feed-grid" id="games-grid">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="feed-tab-content" id="shows-tab">
+                    <div class="feed-grid" id="shows-grid">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="feed-tab-content" id="questions-tab">
+                    <div class="feed-grid" id="questions-grid">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <button class="nav-btn" data-screen="messages">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <span>Messages</span>
+            </button>
+            <button class="nav-btn" data-screen="feed">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="14" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                <span>Feed</span>
+            </button>
+        </div>
+        
+        <!-- Home Button (floating above center) -->
+        <div class="center-home-btn">
+            <button class="home-btn" data-screen="home">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9,22 9,12 15,12 15,22"></polyline>
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Connection Button (center) -->
+        <div class="center-connection-btn">
+            <button class="connection-btn" data-screen="connection">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
